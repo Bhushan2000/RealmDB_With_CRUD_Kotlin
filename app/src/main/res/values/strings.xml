@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">RealmDB_With_CRUD_Kotlin</string>
+    <string name="offline">Offline</string>
+    <string name="add_todo">Add Todo</string>
+    <string name="update_todo">Update Todo</string>
+    <string name="delete_todo">Delete Todo</string>
+    <string name="hint">Enter the text here</string>
+    <string name="todo_added">Todo Added</string>
+    <string name="enter_todo_title">Enter the Todo title</string>
+    <string name="todo_updated">Todo Updated</string>
+</resources>
