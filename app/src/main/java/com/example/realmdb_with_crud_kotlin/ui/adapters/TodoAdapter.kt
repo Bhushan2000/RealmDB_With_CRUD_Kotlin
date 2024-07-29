@@ -1,6 +1,5 @@
-package com.example.realmdb_with_crud_kotlin.ui
+package com.example.realmdb_with_crud_kotlin.ui.adapters
 
-import android.content.Context
 import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +7,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.realmdb_with_crud_kotlin.R
 import com.example.realmdb_with_crud_kotlin.data.models.Todos
-import com.example.realmdb_with_crud_kotlin.data.viewModel.TodoViewModel
+import com.example.realmdb_with_crud_kotlin.ui.activities.AddActivity
 
 class TodoAdapter(
     private var todoList: MutableList<Todos>,
@@ -44,6 +43,8 @@ class TodoAdapter(
                 putExtra("todo_completed", todo.completed)
                 putExtra("todo_user_id", todo.userId)
                 putExtra("button_title", R.string.update_todo.toString())
+                putExtra("activity_code", -2)
+
             }
             it.context.startActivity(intent)
         }

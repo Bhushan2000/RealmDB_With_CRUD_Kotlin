@@ -1,10 +1,10 @@
-package com.example.realmdb_with_crud_kotlin.data.Repository.remote
+package com.example.realmdb_with_crud_kotlin.data.Repository.remote.retrofit
 
 import com.example.realmdb_with_crud_kotlin.data.models.BaseModel
-import com.example.realmdb_with_crud_kotlin.data.models.receive.DeleteModelResponse
+import com.example.realmdb_with_crud_kotlin.data.models.DeleteModelResponse
 import com.example.realmdb_with_crud_kotlin.data.models.Todos
-import com.example.realmdb_with_crud_kotlin.data.models.send.AddModel
-import com.example.realmdb_with_crud_kotlin.data.models.send.UpdateModel
+import com.example.realmdb_with_crud_kotlin.data.models.AddModel
+import com.example.realmdb_with_crud_kotlin.data.models.UpdateModel
 import retrofit2.http.Body
 import retrofit2.http.DELETE
 import retrofit2.http.GET

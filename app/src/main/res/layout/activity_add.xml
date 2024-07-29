@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.AddActivity">
+    tools:context=".ui.activities.AddActivity">
 
     <EditText
         android:textSize="@dimen/text_large"
@@ -32,6 +32,7 @@
         android:contentDescription="@string/add_todo"
         android:textSize="@dimen/text_large"
         android:src="@drawable/icon_add"
+        android:backgroundTint="@android:color/holo_green_light"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -46,10 +47,23 @@
         app:layout_constraintTop_toTopOf="@+id/etEnterTodo" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="24dp"
+        android:clickable="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/icon_add_circle" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/btn_delete_todo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
+        android:backgroundTint="@android:color/holo_red_light"
         android:contentDescription="@string/delete_todo"
         android:layout_marginBottom="24dp"
         android:src="@drawable/icon_delete"

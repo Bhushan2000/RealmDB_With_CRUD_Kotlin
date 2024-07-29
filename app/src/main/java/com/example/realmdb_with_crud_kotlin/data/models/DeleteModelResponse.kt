@@ -1,4 +1,4 @@
-package com.example.realmdb_with_crud_kotlin.data.models.receive
+package com.example.realmdb_with_crud_kotlin.data.models
 
 import com.google.gson.annotations.SerializedName
 

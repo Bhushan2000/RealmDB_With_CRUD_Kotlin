@@ -11,12 +11,11 @@ material = "1.12.0"
 activity = "1.9.1"
 constraintlayout = "2.1.4"
 okhttp = "4.12.0"
-realmKotlin = "1.16.0"
-realmLibraryBase = "1.16.0"
 retrofit = "2.11.0"
 navigationFragmentKtx = "2.7.7"
 navigationUiKtx = "2.7.7"
 swiperefreshlayout = "1.1.0"
+realmKotlin = "1.16.0"
 
 [libraries]
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
@@ -34,7 +33,6 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 okhttp = { module = "com.squareup.okhttp3:okhttp", version.ref = "okhttp" }
-realm-library-base = { module = "io.realm.kotlin:library-base", version.ref = "realmLibraryBase" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofit" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigationUiKtx" }
@@ -43,4 +41,4 @@ androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlinKapt = { id = "org.jetbrains.kotlin.kapt", version.ref = "kotlin" }
-realm-android = { id ="io.realm.kotlin", version.ref = "realmKotlin" }
+realm-kotlin = {id="io.realm.kotlin" , version.ref = "realmKotlin" }

@@ -1,4 +1,4 @@
-package com.example.realmdb_with_crud_kotlin.data.Repository.remote
+package com.example.realmdb_with_crud_kotlin.data.Repository.remote.retrofit
 
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit

@@ -1,45 +1,68 @@
-package com.example.realmdb_with_crud_kotlin.ui
+package com.example.realmdb_with_crud_kotlin.ui.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
 import android.widget.RelativeLayout
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
-import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
-import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.example.realmdb_with_crud_kotlin.R
-import com.example.realmdb_with_crud_kotlin.data.Repository.TodoRepo
-import com.example.realmdb_with_crud_kotlin.data.models.BaseModel
+import com.example.realmdb_with_crud_kotlin.data.Repository.remote.repo.TodoRepo
 import com.example.realmdb_with_crud_kotlin.data.models.Todos
-import com.example.realmdb_with_crud_kotlin.data.viewModel.MyViewModelFactory
-import com.example.realmdb_with_crud_kotlin.data.viewModel.TodoViewModel
+import com.example.realmdb_with_crud_kotlin.data.Repository.remote.viewModel.TodoViewModelFactory
+import com.example.realmdb_with_crud_kotlin.data.Repository.remote.viewModel.TodoViewModel
+import com.example.realmdb_with_crud_kotlin.ui.adapters.TodoAdapter
+import com.example.realmdb_with_crud_kotlin.utils.NetworkUtil
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
-import retrofit2.Call
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var fab: FloatingActionButton
+    private lateinit var add_fab: FloatingActionButton
+    private lateinit var offline_fab: FloatingActionButton
     private lateinit var recyclerView: RecyclerView
     private lateinit var rel_layout: RelativeLayout
+    private lateinit var textView_offline: TextView
+    private lateinit var imageView_wifi: ImageView
     private lateinit var adapter: TodoAdapter
     private lateinit var viewModel: TodoViewModel
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_main)
+
         setInsets()
         initViews()
+        checkNetwork()
         addTodo()
         getAllTodos()
+        offline_realmDB()
+        Log.d(MainActivity::class.java.simpleName, "Network,......: ${NetworkUtil.isNetworkAvailable(this)}")
+
+    }
+
+    private fun checkNetwork() {
+        if ( NetworkUtil.isNetworkAvailable(this)) {
+            textView_offline.visibility = View.GONE
+            imageView_wifi.visibility = View.GONE
+        } else {
+            add_fab.visibility = View.GONE
+        }
+    }
+
+    private fun offline_realmDB() {
+        offline_fab.setOnClickListener {
+            val intent = Intent(this, OfflineActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     private fun getAllTodos() {
@@ -74,20 +97,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun initViews() {
-        fab = findViewById<FloatingActionButton>(R.id.fab)
+        add_fab = findViewById<FloatingActionButton>(R.id.add_fab)
+        offline_fab = findViewById<FloatingActionButton>(R.id.offline_fab)
         recyclerView = findViewById<RecyclerView>(R.id.recyclerview)
         rel_layout = findViewById(R.id.rel_layout)
+        textView_offline = findViewById(R.id.textView_offline)
+        imageView_wifi = findViewById(R.id.imageView_wifi)
         initViewModel()
     }
 
     fun initViewModel() {
         val repository = TodoRepo()
-        val viewModelFactory = MyViewModelFactory(repository)
+        val viewModelFactory = TodoViewModelFactory(repository)
         viewModel = ViewModelProvider(this, viewModelFactory)[TodoViewModel::class.java]
     }
 
     fun addTodo() {
-        fab.setOnClickListener {
+        add_fab.setOnClickListener {
             val intent = Intent(this, AddActivity::class.java)
             startActivity(intent)
         }
