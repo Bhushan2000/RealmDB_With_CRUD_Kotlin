@@ -28,7 +28,7 @@ The project focus on building a simple todo list app that utilizes RealmDB for l
 
 ## Screenshots
 
-<img src="https://github.com/user-attachments/assets/99235a2e-b385-4fe5-b428-4ad6ee5608dd" height="1000" width="500" />
+<img src="https://github.com/user-attachments/assets/4d14aaf7-aba7-4cc6-ab6d-a813470d1bf6" height="1000" width="1000" />
 
 
 ## How to Run the Project:
