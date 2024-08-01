@@ -26,10 +26,18 @@ The project focus on building a simple todo list app that utilizes RealmDB for l
 - **Network Connectivity**: Implmented Network connectivy.
 - **Offline Mode**: View your todos in offline mode.
 
+
 ## Screenshots
 
-<img src="https://github.com/user-attachments/assets/4d14aaf7-aba7-4cc6-ab6d-a813470d1bf6" height="1000" width="1000" />
+<img src="https://github.com/user-attachments/assets/7efa8221-b435-4064-8346-9a46e5ca23bf" height="1000" width="500" />
 
+## Important Note :  Due to the use of Free Rest-API's - 
+- Adding a new todo will not add it into the server.
+- It will simulate a POST request and will return the new created todo with a new id
+- Updating a todo will not update it into the server.
+- It will simulate a PUT/PATCH request and will return updated todo with modified data
+- Deleting a todo will not delete it into the server.
+- It will simulate a DELETE request and will return deleted todo with isDeleted & deletedOn keys
 
 ## How to Run the Project:
 - Clone the repository from <a href="https://github.com/Bhushan2000/RealmDB_With_CRUD_Kotlin.git">Click Here</a>
